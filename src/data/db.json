@@ -12,7 +12,7 @@
       "emailBlindIndex": "89826266bdf2c9b4ea477788118cad8916b3c66b165e70bb86d9865c95989bc6",
       "passwordHash": "$2b$12$LnkaUj8pwGFDArNFq1wjCe7jMTtDyD6lhg/rGTzt7l3AL9c36aABC",
       "createdAt": "2026-10-07T02:30:18.738Z",
-      "lastLogin": "2026-10-07T03:08:27.062Z"
+      "lastLogin": "2026-10-07T18:24:34.016Z"
     },
     {
       "id": "usr_174756dfe35cd1ce",
@@ -86,6 +86,96 @@
       "emailBlindIndex": "a25a523d287bee068a88d4615152c4521402947882d43404ceab78ba59616e50",
       "passwordHash": "$2b$12$U3ZQvwXXgc3C1XJ7xITCd.4TL7nGPTzLXEw49vCRKe17YObjShwQm",
       "createdAt": "2026-10-07T17:06:36.691Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_bef4a695b407c569",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "7b030059701b9e5bc84bac2f8a0fec1c6a512e86ff6d22c424f3780548ab20",
+        "iv": "bafb5bb6574ca6c813a172c3",
+        "authTag": "3fc2c2143a0dcf53d1194146591b19fc",
+        "serialized": "bafb5bb6574ca6c813a172c3:3fc2c2143a0dcf53d1194146591b19fc:7b030059701b9e5bc84bac2f8a0fec1c6a512e86ff6d22c424f3780548ab20",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "cd360f836f201820af382297e4096dd0561cc22dad66bee14052f8d25a3c3e15",
+      "passwordHash": "$2b$12$Ij947j95D9C4k3OjxCensewhBUB7PRDmgsmeDSTWya9xETp6vg9fC",
+      "createdAt": "2026-10-07T17:18:56.628Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_05b331459ae55c0c",
+      "fullName": "Rahul Shah",
+      "encryptedEmail": {
+        "ciphertext": "66ce648b332a86cc78589efa9fae04e9984ba504",
+        "iv": "338ef455292d6f8c333adbf7",
+        "authTag": "398992de41908ece5cb3f30a1cfc56e1",
+        "serialized": "338ef455292d6f8c333adbf7:398992de41908ece5cb3f30a1cfc56e1:66ce648b332a86cc78589efa9fae04e9984ba504",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "c24bbff4e348dfe100be75df86c032317b4cb9ab4130c2c9ef7d5314ca5896b3",
+      "passwordHash": "$2b$12$lky.xXYbMNJIhc0XYlpLquCGbdVR4iLFuTResozuoT5sABkSWp33q",
+      "createdAt": "2026-10-07T17:36:09.157Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_3e48fd7ff9844cf1",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "5ec92aa3810ec687a825343a574dc6151d3f7d7639e0a77ac096b1037d7a40",
+        "iv": "bfa8e40aa48fa3c788e2618e",
+        "authTag": "f959e3a9210dc7aa9fcda6d646661f85",
+        "serialized": "bfa8e40aa48fa3c788e2618e:f959e3a9210dc7aa9fcda6d646661f85:5ec92aa3810ec687a825343a574dc6151d3f7d7639e0a77ac096b1037d7a40",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "2eb71e3b65ff37536e9faeefd175515d3e6e798ab616b6dd27fb2b016704a8e2",
+      "passwordHash": "$2b$12$OPw.DsPSSYr3StEcztvmYO6rFzkOK.esK1hp1gy.8ap3lgQX/41FG",
+      "createdAt": "2026-10-07T17:54:04.999Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_bd954909289f76c3",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "d060fcf67095280d0d004475f39e9a4df87bfee718ca6bad226868993b3866",
+        "iv": "80f89448065bff937dbf0918",
+        "authTag": "79ba3dccdd04a4849ac04b1b9104b03a",
+        "serialized": "80f89448065bff937dbf0918:79ba3dccdd04a4849ac04b1b9104b03a:d060fcf67095280d0d004475f39e9a4df87bfee718ca6bad226868993b3866",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "6048c46878386512c9cbc52742d879e6bc444f9a2c675ca5b7620873d6e0c1de",
+      "passwordHash": "$2b$12$S5ry1p9UBChHTankzD.AHOMw3JTD8BX/qk61zAyfkbqO9DWg5Uc2u",
+      "createdAt": "2026-10-07T18:02:24.491Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_a6edd429bb820ac2",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "d9937022a1cc4edb9d0a5fef81a351306ba28fdb46524412c684343f073a6c",
+        "iv": "72a24aaeda47f98f317792fc",
+        "authTag": "edb014893b516102a2a6206d51e36d4d",
+        "serialized": "72a24aaeda47f98f317792fc:edb014893b516102a2a6206d51e36d4d:d9937022a1cc4edb9d0a5fef81a351306ba28fdb46524412c684343f073a6c",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "3df81e425b94967517113eae27967c6d9264ee6827c8aa740cf11124238c25e7",
+      "passwordHash": "$2b$12$NGnlZaf00y1jsSEMBeinmehZtbiPe7X9wK/FOltdkpFHT4dV7/TGG",
+      "createdAt": "2026-10-07T18:07:20.429Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_9e2ab6044fae9c1a",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "c2146e8c8986d3ba4755750cc9135195861ae623e116f192e9fa9876689947",
+        "iv": "b44d7a819c171746360142a1",
+        "authTag": "1ea4664d96495bbd8afe480364c4c4cc",
+        "serialized": "b44d7a819c171746360142a1:1ea4664d96495bbd8afe480364c4c4cc:c2146e8c8986d3ba4755750cc9135195861ae623e116f192e9fa9876689947",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "f3270fd93a02c2fa39d7bb8abdfe0ce6c7afa349420702772d3c7fbf35aa35ae",
+      "passwordHash": "$2b$12$2cQp5y06hHpyF8hDrWJmWeVq9VabiwmVskDpzs12WGNDKyQpD748G",
+      "createdAt": "2026-10-07T18:23:26.942Z",
       "lastLogin": null
     }
   ]

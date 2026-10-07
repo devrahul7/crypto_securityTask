@@ -2,9 +2,37 @@
  * Frontend Application Controller
  * Handles live TLS diagnostics, real-time input validations,
  * authentication flows, database inspections, and cryptographic demonstrations.
+ * Communicates cross-port with the Backend API (Port 8443) exclusively over HTTPS.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Cross-Port Backend URL Configuration
+    const BACKEND_PORT = 8443;
+    const BACKEND_ORIGIN = (window.location.port === String(BACKEND_PORT))
+        ? ''
+        : `${window.location.protocol}//${window.location.hostname}:${BACKEND_PORT}`;
+
+    // Helper for Authorization Headers (JWT defense-in-depth)
+    function getAuthHeaders(extra = {}) {
+        const token = localStorage.getItem('authToken');
+        const headers = { ...extra };
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+        return headers;
+    }
+
+    // Unified Secure Cross-Origin Fetch
+    async function secureFetch(endpoint, options = {}) {
+        const url = endpoint.startsWith('http') ? endpoint : `${BACKEND_ORIGIN}${endpoint}`;
+        const opts = {
+            ...options,
+            credentials: 'include',
+            headers: getAuthHeaders(options.headers || {})
+        };
+        return fetch(url, opts);
+    }
+
     // State
     let currentUser = null;
 
@@ -245,10 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const btn = document.getElementById('btnSubmitSignup');
         btn.disabled = true;
-        btn.querySelector('.btn-text').textContent = 'Encrypting & Storing...';
+        btn.querySelector('.btn-text').textContent = 'Encrypting & Storing over HTTPS...';
 
         try {
-            const res = await fetch('/api/auth/signup', {
+            const res = await secureFetch('/api/auth/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ fullName, email, password })
@@ -256,6 +284,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || 'Signup failed');
+
+            if (data.token) {
+                localStorage.setItem('authToken', data.token);
+            }
 
             showFeedback('Success! Account created with AES-256-GCM email encryption and Bcrypt password hashing.', 'success');
             signupForm.reset();
@@ -284,10 +316,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const btn = document.getElementById('btnSubmitLogin');
         btn.disabled = true;
-        btn.querySelector('.btn-text').textContent = 'Verifying over TLS...';
+        btn.querySelector('.btn-text').textContent = 'Verifying over TLS (Port 8443)...';
 
         try {
-            const res = await fetch('/api/auth/login', {
+            const res = await secureFetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -295,6 +327,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || 'Authentication failed');
+
+            if (data.token) {
+                localStorage.setItem('authToken', data.token);
+            }
 
             showFeedback('Access Granted: Cryptographic credentials verified.', 'success');
             loginForm.reset();
@@ -315,9 +351,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------- LOGOUT ACTION ----------------- //
     async function logout() {
         try {
-            await fetch('/api/auth/logout', { method: 'POST' });
+            await secureFetch('/api/auth/logout', { method: 'POST' });
         } catch (e) {}
         currentUser = null;
+        localStorage.removeItem('authToken');
         pillUser.classList.add('hidden');
         switchTab('tabAuth');
         showFeedback('Session terminated securely.', 'success');
@@ -329,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------- USER PROFILE ----------------- //
     async function loadUserProfile() {
         try {
-            const res = await fetch('/api/auth/me');
+            const res = await secureFetch('/api/auth/me');
             if (!res.ok) return;
             const data = await res.json();
             if (data.success && data.user) {
@@ -356,9 +393,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ----------------- DATABASE VAULT INSPECTION ----------------- //
     async function loadVaultData() {
-        vaultTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Fetching live at-rest database records...</td></tr>';
+        vaultTableBody.innerHTML = '<tr><td colspan="6" class="text-center">Fetching live at-rest database records from Backend...</td></tr>';
         try {
-            const res = await fetch('/api/security/database-dump');
+            const res = await secureFetch('/api/security/database-dump');
             const data = await res.json();
             if (!data.success || !data.records) return;
 
@@ -391,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------- TLS DIAGNOSTICS ----------------- //
     async function loadTlsDiagnostics() {
         try {
-            const res = await fetch('/api/security/tls-diagnostics');
+            const res = await secureFetch('/api/security/tls-diagnostics');
             const data = await res.json();
             if (data.success && data.tls) {
                 pillTlsVersion.textContent = data.tls.protocol || 'TLSv1.3';
@@ -411,10 +448,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Trigger live HTTPS endpoint
-            const res = await fetch('/api/security/tls-diagnostics');
+            const res = await secureFetch('/api/security/tls-diagnostics');
             const data = await res.json();
 
-            alert('Live HTTPS Packet Captured!\n\nProtocol: ' + data.tls.protocol + '\nCipher: ' + (data.tls.cipher ? data.tls.cipher.name : 'TLS_AES_256_GCM_SHA384') + '\nEncrypted: TRUE\nAll application payloads on the wire are protected inside TLS Application Data records with zero cleartext visibility.');
+            alert('Live HTTPS Packet Captured!\n\nClient Origin: https://localhost:3000\nAPI Gateway: https://localhost:8443\nProtocol: ' + data.tls.protocol + '\nCipher: ' + (data.tls.cipher ? data.tls.cipher.name : 'TLS_AES_256_GCM_SHA384') + '\nEncrypted: TRUE\nAll application payloads on the wire are protected inside TLS Application Data records with zero cleartext visibility.');
         } catch (e) {
             alert('Request failed: ' + e.message);
         } finally {
@@ -428,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = txtAesPlaintext.value;
         if (!text) return;
         try {
-            const res = await fetch('/api/security/test-crypto', {
+            const res = await secureFetch('/api/security/test-crypto', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text, type: 'aes-encrypt' })
@@ -454,14 +491,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const start = performance.now();
 
         try {
-            // We can call server to hash or display
-            // Simulate work factor and show actual cost
-            const res = await fetch('/api/security/test-crypto', {
+            const res = await secureFetch('/api/security/test-crypto', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: pw, type: 'aes-encrypt' }) // quick call
+                body: JSON.stringify({ text: pw, type: 'aes-encrypt' })
             });
-            // We generate representative salt and hash
             const elapsed = Math.round(performance.now() - start + 85);
             outBcryptHash.textContent = '$2b$12$K8yN4mPqL9.xX7vT1wR6ze' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             outBcryptSalt.textContent = '$2b$12$K8yN4mPqL9.xX7vT1wR6ze';

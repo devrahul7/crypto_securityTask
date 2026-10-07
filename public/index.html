@@ -30,9 +30,13 @@
 
             <!-- Live TLS Diagnostics Pill -->
             <div class="security-pills" id="securityPills">
-                <div class="sec-pill" id="pillTlsStatus" title="Transport Layer Security Active">
+                <div class="sec-pill" id="pillPorts" title="Multi-Port Architecture">
                     <span class="pill-dot pulse-green"></span>
-                    <span class="pill-label">HTTPS EXCLUSIVE</span>
+                    <span class="pill-label">TOPOLOGY:</span>
+                    <span class="pill-val text-cyan">FE: 3000 (HTTPS) ➔ BE: 8443 (HTTPS)</span>
+                </div>
+                <div class="sec-pill" id="pillTlsStatus" title="Transport Layer Security Active">
+                    <span class="pill-label">SECURITY</span>
                     <span class="pill-val" id="pillTlsVersion">TLSv1.3</span>
                 </div>
                 <div class="sec-pill" id="pillCipher" title="Negotiated Cipher Suite">
@@ -62,13 +66,13 @@
             <div class="hero-content">
                 <div class="hero-badge-wrap">
                     <span class="status-chip"><span class="lock-icon">🔒</span> End-to-End Cryptographic Assurance</span>
-                    <span class="tech-tag">AES-256-GCM</span>
-                    <span class="tech-tag">Bcrypt Cost 12</span>
+                    <span class="tech-tag">Frontend: Port 3000 (HTTPS)</span>
+                    <span class="tech-tag">Backend: Port 8443 (HTTPS)</span>
                     <span class="tech-tag">TLS 1.3 Strict</span>
                 </div>
-                <h1>Three-Tier Defense Architecture</h1>
+                <h1>Dual-Port HTTPS Defense Architecture</h1>
                 <p class="hero-desc">
-                    Frontend and Backend communicate <strong>exclusively over HTTPS/TLS</strong> with zero cleartext transmission. Sensitive emails are protected at rest via <strong>AES-256-GCM authenticated encryption</strong> with keyed blind indexing, and user credentials are protected against GPU cracking via salted <strong>Bcrypt key stretching</strong>.
+                    Frontend (Port 3000) and Backend (Port 8443) run as isolated services communicating <strong>exclusively over HTTPS/TLS</strong> with zero cleartext transmission. Sensitive emails are protected at rest via <strong>AES-256-GCM authenticated encryption</strong> with keyed blind indexing, and user credentials are protected against GPU cracking via salted <strong>Bcrypt key stretching</strong>.
                 </p>
             </div>
             <div class="hero-metrics">

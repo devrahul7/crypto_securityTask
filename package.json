@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node src/server.js",
     "pcap": "node src/network/pcapGenerator.js",
-    "screenshots": "node scripts/render-academic-views.js",
-    "report": "node scripts/generate-academic-pdf.js",
-    "docx": "node scripts/generate-academic-docx.js",
+    "screenshots": "node scripts/capture-all-views.js",
+    "report": "node scripts/generate-pdf-report.js",
+    "docx": "node scripts/generate-docx-report.js",
     "test": "node test/test_security.js"
   },
   "keywords": [],
