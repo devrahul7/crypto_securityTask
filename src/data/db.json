@@ -1,0 +1,92 @@
+{
+  "users": [
+    {
+      "id": "usr_7aec5b96023c6fa0",
+      "fullName": "Rahul Test",
+      "encryptedEmail": {
+        "ciphertext": "48d129bb2f8c868b5a51c714670cd59550adffc61ad2971d",
+        "iv": "428ab6019f3bdb622bf5f29e",
+        "authTag": "942afb1d1cbeef9cddc784143a9ef6cd",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "89826266bdf2c9b4ea477788118cad8916b3c66b165e70bb86d9865c95989bc6",
+      "passwordHash": "$2b$12$LnkaUj8pwGFDArNFq1wjCe7jMTtDyD6lhg/rGTzt7l3AL9c36aABC",
+      "createdAt": "2026-10-07T02:30:18.738Z",
+      "lastLogin": "2026-10-07T03:08:27.062Z"
+    },
+    {
+      "id": "usr_174756dfe35cd1ce",
+      "fullName": "Test Student",
+      "encryptedEmail": {
+        "ciphertext": "76e501ee6047cd18d4c54956face57a440cc410a26cf02e5a7a18054",
+        "iv": "ee6dca2eb2a45500644ded78",
+        "authTag": "ac09e5542c9d17dadfe3f9d1e93afae6",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "cc7118acd9383f459a043685ba0c8131f1b0739260505028a902f57d390292e7",
+      "passwordHash": "$2b$12$CUuKtTUHRi2vwrBBt1dDXOJsNgsXqxk6cL6jh/ob.T4hrbfgeM/Ra",
+      "createdAt": "2026-10-07T02:57:58.609Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_ad98f0992972f862",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "fab88b2d1d4c8427db445dfa07165ab473f747269e23d4119e9a307ee4a807",
+        "iv": "4156ac40266a43ea43c3b8bf",
+        "authTag": "0f38291b0ea8e4f0dcde533598153dee",
+        "serialized": "4156ac40266a43ea43c3b8bf:0f38291b0ea8e4f0dcde533598153dee:fab88b2d1d4c8427db445dfa07165ab473f747269e23d4119e9a307ee4a807",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "734a3ea16008925b647c737b60fec7d00b7215042f81dd7d87b973fcadd99c1a",
+      "passwordHash": "$2b$12$oMMw2TjVKJUY16WwXOBAeeVLmrgBwHteKm8pPVjmpiByDEttibzby",
+      "createdAt": "2026-10-07T17:04:33.262Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_4e12cb4d11f77f23",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "706eabd085b77f82c1c05d5054335f7700aa1077993b11264d080f29d7d132",
+        "iv": "209641cc28b79033db3ad04d",
+        "authTag": "bf58f908003f6812fdd726804bc9d73b",
+        "serialized": "209641cc28b79033db3ad04d:bf58f908003f6812fdd726804bc9d73b:706eabd085b77f82c1c05d5054335f7700aa1077993b11264d080f29d7d132",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "5aec88d301f14a40fd400250df60fa84385c137f181c8a2b6e8b1c9136d02260",
+      "passwordHash": "$2b$12$MKDC2AtVa5iVAvb1P4E1lOiMJFcw5LwCkGYYEFkF9UoGk1.qXp/w6",
+      "createdAt": "2026-10-07T17:05:21.372Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_97d40fd212c1e225",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "3e9aa877b4cc3556ccf3111e5ab21c1330e44219e146585c42a224a9e33699",
+        "iv": "382de122348ae30a1ef5fd43",
+        "authTag": "c126d2bd10125a8f688b44559e3a1f13",
+        "serialized": "382de122348ae30a1ef5fd43:c126d2bd10125a8f688b44559e3a1f13:3e9aa877b4cc3556ccf3111e5ab21c1330e44219e146585c42a224a9e33699",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "a60945e65654ee3fe4803dc10af12ac498e9562d82dc81b782f840f5bae4ddb5",
+      "passwordHash": "$2b$12$2XyrgnKtbzzaR.EVRH7uHeGBpKUJMMh/yKThKm79RyPxeXFyOx6r6",
+      "createdAt": "2026-10-07T17:05:50.418Z",
+      "lastLogin": null
+    },
+    {
+      "id": "usr_448ef38fab2beee8",
+      "fullName": "Auditor Eve",
+      "encryptedEmail": {
+        "ciphertext": "93e63571d1648aaefb5b5488d8c5cd52c5c03d3949c4682e8572d25b6bfc42",
+        "iv": "7ff47dd9edc2416408125f01",
+        "authTag": "4b0c33322064d86481278efd388b1c3c",
+        "serialized": "7ff47dd9edc2416408125f01:4b0c33322064d86481278efd388b1c3c:93e63571d1648aaefb5b5488d8c5cd52c5c03d3949c4682e8572d25b6bfc42",
+        "algorithm": "aes-256-gcm"
+      },
+      "emailBlindIndex": "a25a523d287bee068a88d4615152c4521402947882d43404ceab78ba59616e50",
+      "passwordHash": "$2b$12$U3ZQvwXXgc3C1XJ7xITCd.4TL7nGPTzLXEw49vCRKe17YObjShwQm",
+      "createdAt": "2026-10-07T17:06:36.691Z",
+      "lastLogin": null
+    }
+  ]
+}
